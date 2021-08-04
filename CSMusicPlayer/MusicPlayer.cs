@@ -13,8 +13,11 @@ namespace CSMusicPlayer
     public partial class MusicPlayer : Form
     {
         //se crean dos variables locales fuera del metodo btnAdd_Click para contener tanto la ruta como los nombres de los archivos de mucica
-        List<string> _sonNames; //nombres de los archivos
-        List<string> _sonPaths; //lista con la ruta de los archivos
+        //List<string> _sonNames; //nombres de los archivos
+        //List<string> _sonPaths; //lista con la ruta de los archivos
+
+        //se crea una nueva lista 
+        List<Song> _songs;
 
         public MusicPlayer()
         {
@@ -47,24 +50,23 @@ namespace CSMusicPlayer
         private void AddSongsToList(List<string> names , List<string> paths)
         {
             //se crea un if para inicializar la lista _sonNames que esta sin inicializar
-            if (_sonNames == null)
-                _sonNames = new List<string>();
+            if (_songs == null)
+                _songs = new List<Song>();
 
-            if (_sonPaths == null)
-                _sonPaths = new List<string>();
+            //if (_sonPaths == null)
+            //    _sonPaths = new List<string>();
 
             foreach (var item in names)
             {
                 //si la cancion existe o no 
                 if (!ExistsOnList(item))
-                {
-                    _sonNames.Add(item);
-                   _sonPaths.Add(GetPath(item,paths));
-                }
-            }
+                    _songs.Add(new Song(item, GetPath(item, paths)));
+                    //_sonNames.Add(item);
+                   //_sonPaths.Add(GetPath(item,paths));
+             }
 
             //agregar las canciones al ListsBox 
-            songsList.DataSource = _sonNames;
+            //songsList.DataSource = songNames;
 
             RefreshList();
         }
@@ -75,9 +77,9 @@ namespace CSMusicPlayer
         {
             bool exist = false;
 
-            foreach (var item in _sonNames)
+            foreach (var item in _songs)
             {
-                if (item == song)
+                if (item.Name == song)
                 
                     exist = true;
             }
@@ -91,12 +93,23 @@ namespace CSMusicPlayer
             string actualPath = string.Empty;
 
             if (songsPath == null)
-                songsPath = _sonPaths;
-
-            foreach (var path in songsPath)
             {
-                if (path.Contains(FileName))
-                    actualPath = path;
+                // songsPath = _sonPaths;
+                foreach (var song in _songs)
+                {
+                    if (song.Name == FileName)
+                        actualPath = song.Path;
+                }
+
+            }
+            else
+            {
+                foreach (var path in songsPath)
+                {
+                    if (path.Contains(FileName))
+                        actualPath = path;
+                }
+                
             }
             return actualPath;
         }
@@ -110,11 +123,24 @@ namespace CSMusicPlayer
         //se crea el evnto click para el boton remover cancion
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if (_sonNames != null)
-                _sonNames.Remove(songsList.Text);
+            Song songToRemove = null;
 
-            if (_sonPaths != null)
-                _sonPaths.Remove(GetPath(songsList.Text));
+            foreach (var song in _songs)
+            {
+                if (song.Name == songsList.Text)
+                    songToRemove = song;
+            }
+
+            if (songToRemove != null)
+            {
+                _songs.Remove(songToRemove);
+            }
+
+            //if (_sonNames != null)
+            //    _sonNames.Remove(songsList.Text);
+
+            //if (_sonPaths != null)
+            //    _sonPaths.Remove(GetPath(songsList.Text));
 
             RefreshList();
         }
@@ -123,8 +149,12 @@ namespace CSMusicPlayer
         //se crea un metodo para refrescar la lista de reproduccion
         private void RefreshList()
         {
+            List<string> songNames = new List<string>();
+            foreach (var item in _songs)
+                songNames.Add(item.Name);
+
             songsList.DataSource = null;
-            songsList.DataSource = _sonNames;
+            songsList.DataSource = songNames;
         }
     }
 }
