@@ -1,0 +1,15 @@
+D:\Curso C#\CSMusicPlayer\CSMusicPlayer\bin\Debug\CSMusicPlayer.exe.config
+D:\Curso C#\CSMusicPlayer\CSMusicPlayer\bin\Debug\CSMusicPlayer.exe
+D:\Curso C#\CSMusicPlayer\CSMusicPlayer\bin\Debug\CSMusicPlayer.pdb
+D:\Curso C#\CSMusicPlayer\CSMusicPlayer\obj\Debug\CSMusicPlayer.csproj.AssemblyReference.cache
+D:\Curso C#\CSMusicPlayer\CSMusicPlayer\obj\Debug\CSMusicPlayer.MusicPlayer.resources
+D:\Curso C#\CSMusicPlayer\CSMusicPlayer\obj\Debug\CSMusicPlayer.Properties.Resources.resources
+D:\Curso C#\CSMusicPlayer\CSMusicPlayer\obj\Debug\CSMusicPlayer.csproj.GenerateResource.cache
+D:\Curso C#\CSMusicPlayer\CSMusicPlayer\obj\Debug\CSMusicPlayer.csproj.CoreCompileInputs.cache
+D:\Curso C#\CSMusicPlayer\CSMusicPlayer\obj\Debug\CSMusicPlayer.exe
+D:\Curso C#\CSMusicPlayer\CSMusicPlayer\obj\Debug\CSMusicPlayer.pdb
+D:\Curso C#\CSMusicPlayer\CSMusicPlayer\bin\Debug\Interop.WMPLib.dll
+D:\Curso C#\CSMusicPlayer\CSMusicPlayer\bin\Debug\AxInterop.WMPLib.dll
+D:\Curso C#\CSMusicPlayer\CSMusicPlayer\obj\Debug\Interop.WMPLib.dll
+D:\Curso C#\CSMusicPlayer\CSMusicPlayer\obj\Debug\AxInterop.WMPLib.dll
+D:\Curso C#\CSMusicPlayer\CSMusicPlayer\obj\Debug\CSMusicPlayer.csproj.ResolveComReference.cache
